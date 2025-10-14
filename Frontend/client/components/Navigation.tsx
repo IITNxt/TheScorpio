@@ -25,27 +25,27 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-transparent"
+        isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-white/80 backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="flex justify-between items-center h-14 md:h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-1.5 md:space-x-2 flex-shrink-0">
             <img 
               src="/logo.png" 
               alt="Scorpio Logo" 
-              className="h-9 object-contain" 
+              className="h-7 md:h-9 object-contain" 
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
               }}
             />
-            <span className="text-xl font-bold text-primary">The Scorpio</span>
+            <span className="text-base md:text-xl font-bold text-primary whitespace-nowrap">The Scorpio</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-3 lg:space-x-4">
             {/* Search Bar */}
             <div className="hidden lg:block">
               <SearchBar
@@ -55,12 +55,12 @@ export default function Navigation() {
             </div>
             
             {/* Navigation Links */}
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-4 lg:space-x-6">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="text-foreground/70 hover:text-foreground transition-colors duration-200 font-medium"
+                  className="text-sm lg:text-base text-foreground/70 hover:text-foreground transition-colors duration-200 font-medium"
                 >
                   {item.name}
                 </Link>
@@ -69,10 +69,10 @@ export default function Navigation() {
                 <Button
                   variant="outline"
                   size="icon"
-                  className="border-primary/20 hover:bg-primary/10 hover:border-primary/40 rounded-full"
+                  className="h-8 w-8 lg:h-9 lg:w-9 border-primary/20 hover:bg-primary/10 hover:border-primary/40 rounded-full"
                   title="Contact Us"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <MessageCircle className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
                 </Button>
               </Link>
               {/* Mobile search button */}
@@ -81,10 +81,10 @@ export default function Navigation() {
                   <Button
                     variant="outline"
                     size="icon"
-                    className="border-primary/20 hover:bg-primary/10 hover:border-primary/40 rounded-full"
+                    className="h-8 w-8 border-primary/20 hover:bg-primary/10 hover:border-primary/40 rounded-full"
                     title="Search"
                   >
-                    <Search className="w-4 h-4" />
+                    <Search className="w-3.5 h-3.5" />
                   </Button>
                 </Link>
               </div>
@@ -92,17 +92,27 @@ export default function Navigation() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            <Link to="/search">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-9 w-9 text-foreground"
+                title="Search"
+              >
+                <Search className="h-5 w-5" />
+              </Button>
+            </Link>
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground"
+              className="h-9 w-9 text-foreground"
             >
               {isOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5 w-5" />
               )}
             </Button>
           </div>
@@ -110,21 +120,14 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden animate-fade-in">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-md rounded-lg mt-2 shadow-lg">
-              {/* Mobile Search */}
-              <div className="px-3 py-2">
-                <SearchBar
-                  placeholder="Search..."
-                  className="w-full"
-                />
-              </div>
+          <div className="md:hidden animate-fade-in pb-3">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white/98 backdrop-blur-md rounded-lg mt-2 shadow-lg border border-gray-100">
               
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="block px-3 py-2 text-foreground/70 hover:text-foreground transition-colors duration-200 font-medium"
+                  className="block px-4 py-2.5 text-base text-foreground/70 hover:text-foreground hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
@@ -132,7 +135,7 @@ export default function Navigation() {
               ))}
               <Link
                 to="/contact"
-                className="block px-3 py-2 text-foreground/70 hover:text-foreground transition-colors duration-200 font-medium"
+                className="block px-4 py-2.5 text-base text-foreground/70 hover:text-foreground hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 Contact

@@ -72,26 +72,19 @@ export default function CustomShowcase() {
 
   return (
     <ScrollReveal>
-      <section className="py-24 bg-gradient-to-b from-muted/20 via-muted/25 to-muted/15 relative">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-muted/20 via-muted/25 to-muted/15 relative">
         {/* Gradient overlay for smooth transition */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/10 to-background/20"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="text-center mb-16">
-            {/* <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-foreground/10 to-foreground/20 rounded-full mb-6">
-              <Settings className="w-8 h-8 text-foreground" />
-            </div> */}
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 px-4">
               Custom <span className="gradient-text">Products</span>
             </h2>
-            {/* <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Create something unique with our customizable products. Choose your preferences, 
-              specifications, and let us craft the perfect solution for you.
-            </p> */}
           </div>
 
           {/* Products Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 md:mb-16">
             {products.map((product, index) => (
               <div
                 key={product._id}
@@ -109,22 +102,17 @@ export default function CustomShowcase() {
           </div>
 
           {/* Call to Action */}
-          <div className="text-center">
-            {/* <div className="inline-flex items-center justify-center bg-card rounded-full px-6 py-3 shadow-lg border border-border mb-6">
-              <span className="text-muted-foreground font-medium">
-                ✨ Need something specific? We've got you covered!
-              </span>
-            </div> */}
-            <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
+          <div className="text-center px-4">
+            <div className="space-y-3 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
               <Button
                 asChild
                 size="lg"
-                className="bg-foreground hover:bg-foreground/90 text-background px-8 py-6 rounded-full text-lg font-semibold shadow-lg transform hover:scale-105 transition-all duration-300"
+                className="w-full sm:w-auto bg-foreground hover:bg-foreground/90 text-background px-6 md:px-8 py-5 md:py-6 rounded-full text-base md:text-lg font-semibold shadow-lg transform hover:scale-105 transition-all duration-300"
               >
                 <Link to="/products?custom=true">
-                  <Settings className="w-5 h-5 mr-2" />
+                  <Settings className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                   Explore All Custom Products
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-2" />
                 </Link>
               </Button>
               <Button

@@ -9,7 +9,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-24 pb-12 md:pb-16">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-muted/10"></div>
 
@@ -31,40 +31,40 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="animate-fade-in">
+        <div className="animate-fade-in space-y-6 md:space-y-8">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8">
-            <Sparkles className="w-4 h-4" />
-            Premium Quality Showcase
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-primary/10 text-primary text-xs md:text-sm font-medium">
+            <Sparkles className="w-3 h-3 md:w-4 md:h-4" />
+            <span className="whitespace-nowrap">Premium Quality Showcase</span>
           </div>
 
           {/* Main heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
-            <span className="gradient-text">Discover </span>
-            {/* <br /> */}
-            <span className="text-foreground/90"> Excellence</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight px-4">
+            <span className="gradient-text">Discover</span>
+            {" "}
+            <span className="text-foreground/90">Excellence</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl text-foreground/70 max-w-2xl mx-auto px-4 leading-relaxed">
             Explore our curated collection of premium products. Connect directly
             to discuss, negotiate, and make your perfect purchase.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center px-4">
             <Button
               size="lg"
-              className="text-lg px-8 py-6 rounded-full group magnetic-hover shimmer relative overflow-hidden"
+              className="w-full sm:w-auto text-base md:text-lg px-6 md:px-8 py-5 md:py-6 rounded-full group magnetic-hover shimmer relative overflow-hidden"
               onClick={scrollToProducts}
             >
               Browse Products
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
               variant="outline"
               size="lg"
-              className="text-lg px-8 py-6 rounded-full magnetic-hover border-2"
+              className="w-full sm:w-auto text-base md:text-lg px-6 md:px-8 py-5 md:py-6 rounded-full magnetic-hover border-2"
               onClick={() =>
                 document
                   .getElementById("categories")
@@ -77,8 +77,8 @@ export default function HeroSection() {
         </div>
 
         {/* Stats */}
-        <div className="mt-16 animate-slide-up">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+        <div className="mt-12 md:mt-16 animate-slide-up">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto px-4">
             {[
               { number: "50+", label: "Premium Products" },
               { number: "8+", label: "Categories" },
@@ -86,10 +86,10 @@ export default function HeroSection() {
               { number: "24/7", label: "WhatsApp Support" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 md:mb-2">
                   {stat.number}
                 </div>
-                <div className="text-foreground/60 text-sm md:text-base">
+                <div className="text-foreground/60 text-xs sm:text-sm md:text-base">
                   {stat.label}
                 </div>
               </div>

@@ -53,21 +53,17 @@ export default function CategoriesSection() {
   }
 
   return (
-    <section id="categories" className="py-24 bg-background">
+    <section id="categories" className="py-16 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <ScrollReveal className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <ScrollReveal className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 px-4">
             Shop by <span className="gradient-text">Category</span>
           </h2>
-          {/* <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Browse our diverse range of product categories, each carefully
-            curated to bring you the best selection.
-          </p> */}
         </ScrollReveal>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {categories.map((category, index) => (
             <div
               key={category._id}

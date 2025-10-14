@@ -292,23 +292,20 @@ export default function EnhancedProductShowcase({ isHomepage = false }: ProductS
   }
 
   return (
-    <section className={cn(isHomepage ? "py-24 bg-background" : "py-8 bg-muted/30")}>
+    <section className={cn(isHomepage ? "py-16 md:py-24 bg-background" : "py-8 bg-muted/30")}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className={cn("text-center", isHomepage ? "mb-16" : "mb-8")}>
+        <div className={cn("text-center", isHomepage ? "mb-12 md:mb-16" : "mb-6 md:mb-8")}>
           <h2 className={cn(
-            "font-bold text-foreground mb-6",
-            isHomepage ? "text-4xl md:text-5xl" : "text-4xl lg:text-5xl"
+            "font-bold text-foreground mb-4 md:mb-6 px-4",
+            isHomepage ? "text-3xl md:text-4xl lg:text-5xl" : "text-3xl md:text-4xl lg:text-5xl"
           )}>
             {isHomepage ? "Our Products" : "All Products"}
           </h2>
           {isHomepage ? (
-            // <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            //   Discover our curated collection of premium products, carefully selected to meet your needs and exceed your expectations.
-            // </p>
             <p></p>
           ) : (
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
               Discover our complete collection of premium products
             </p>
           )}
@@ -316,7 +313,7 @@ export default function EnhancedProductShowcase({ isHomepage = false }: ProductS
 
         {/* Search Bar - Only show on products page */}
         {!isHomepage && (
-          <div className="mb-8">
+          <div className="mb-6 md:mb-8">
             <SearchBar
               initialQuery={searchQuery}
               onSearch={(query) => {
