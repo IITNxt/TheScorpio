@@ -1,0 +1,11 @@
+{
+  "name": "the-scorpio",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "Frontend"
+  ],
+  "scripts": {
+    "build": "npm run build:vercel --prefix Frontend"
+  }
+}
